@@ -1,0 +1,33 @@
+{
+  "name": "fluent-quickstart",
+  "version": "1.0.0",
+  "description": "Fluent - Quickstart project.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run-script build:live",
+    "build": "tsc --skipLibCheck && cp -f src/*.json build/",
+    "build:live": "node_modules/nodemon/bin/nodemon.js --exec ./node_modules/.bin/ts-node --no-cache --project . src/main.ts serve --environment=development",
+    "start:production": "npm run-script build && node build/main.js --environment=production",
+    "start:staging": "npm run-script build && node build/main.js --environment=staging",
+    "start:development": "npm run-script build && node build/main.js --environment=development",
+    "pm2:start:production": "npm run-script build && pm2 start process.production",
+    "pm2:start:staging": "npm run-script build && pm2 start process.staging",
+    "pm2:start:development": "npm run-script build && pm2 start process.development",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@fluent/console": "^1.0.1",
+    "@fluent/core": "^1.0.1",
+    "@fluent/di": "^1.0.2",
+    "@fluent/logging": "^1.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^9.3.0",
+    "nodemon": "^1.14.11",
+    "ts-node": "^4.1.0",
+    "typescript": "2.6.*"
+  }
+}

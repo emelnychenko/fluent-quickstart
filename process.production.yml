@@ -1,0 +1,9 @@
+apps:
+  - script   : './build/main.js'
+    instances: 1
+    args     : 'serve'
+    name     : 'fluent.quickstart'
+    exec_mode: cluster
+    watch    : true
+    env:
+      FLUENT_ENVIRONMENT: production

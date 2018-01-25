@@ -1,17 +1,6 @@
 import { Main, Startup } from '@fluent/core';
-import { Application, ApplicationBuilder, CommandContext, CommandHandler } from '@fluent/console';
-import { Injectable } from '@fluent/di';
-import { Logger } from '@fluent/logging';
-
-@Injectable()
-export class ServeCommand implements CommandHandler {
-  constructor(private logger: Logger) {
-  }
-
-  handle(_: CommandContext): void | Promise<void> {
-    this.logger.debug('Serve command executed.');
-  }
-}
+import { Application, ApplicationBuilder } from '@fluent/console';
+import { ServeCommand } from './commands/serve.command';
 
 @Main(Application)
 export class FluentStartup extends Startup<ApplicationBuilder> {

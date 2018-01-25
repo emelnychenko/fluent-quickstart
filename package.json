@@ -7,9 +7,9 @@
     "start": "npm run-script build:live",
     "build": "tsc --skipLibCheck && cp -f src/*.json build/",
     "build:live": "node_modules/nodemon/bin/nodemon.js --exec ./node_modules/.bin/ts-node --no-cache --project . src/main.ts serve --environment=development",
-    "start:production": "npm run-script build && node build/main.js --environment=production",
-    "start:staging": "npm run-script build && node build/main.js --environment=staging",
-    "start:development": "npm run-script build && node build/main.js --environment=development",
+    "start:production": "npm run-script build && node build/main.js serve --environment=production",
+    "start:staging": "npm run-script build && node build/main.js serve --environment=staging",
+    "start:development": "npm run-script build && node build/main.js serve --environment=development",
     "pm2:start:production": "npm run-script build && pm2 start process.production",
     "pm2:start:staging": "npm run-script build && pm2 start process.staging",
     "pm2:start:development": "npm run-script build && pm2 start process.development",
@@ -19,10 +19,10 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@fluent/console": "^1.0.1",
-    "@fluent/core": "^1.0.1",
+    "@fluent/console": "^1.0.2",
+    "@fluent/core": "^1.0.2",
     "@fluent/di": "^1.0.2",
-    "@fluent/logging": "^1.0.2"
+    "@fluent/logging": "^1.0.3"
   },
   "devDependencies": {
     "@types/node": "^9.3.0",

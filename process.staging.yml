@@ -1,7 +1,7 @@
 apps:
   - script   : './build/main.js'
     instances: 1
-    args     : 'serve'
+    args     : 'ping'
     name     : 'fluent.quickstart'
     exec_mode: cluster
     watch    : true

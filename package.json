@@ -6,10 +6,10 @@
   "scripts": {
     "start": "npm run-script build:live",
     "build": "tsc --skipLibCheck && cp -f src/*.json build/",
-    "build:live": "node_modules/nodemon/bin/nodemon.js --exec ./node_modules/.bin/ts-node --no-cache --project . src/main.ts serve --environment=development",
-    "start:production": "npm run-script build && node build/main.js serve --environment=production",
-    "start:staging": "npm run-script build && node build/main.js serve --environment=staging",
-    "start:development": "npm run-script build && node build/main.js serve --environment=development",
+    "build:live": "node_modules/nodemon/bin/nodemon.js --watch 'src/**/*.ts' --exec ./node_modules/.bin/ts-node --no-cache ./src/main.ts ping --environment=development",
+    "start:production": "npm run-script build && node build/main.js ping --environment=production",
+    "start:staging": "npm run-script build && node build/main.js ping --environment=staging",
+    "start:development": "npm run-script build && node build/main.js ping --environment=development",
     "pm2:start:production": "npm run-script build && pm2 start process.production",
     "pm2:start:staging": "npm run-script build && pm2 start process.staging",
     "pm2:start:development": "npm run-script build && pm2 start process.development",
@@ -19,15 +19,18 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@fluent/console": "^1.0.2",
-    "@fluent/core": "^1.0.2",
-    "@fluent/di": "^1.0.2",
-    "@fluent/logging": "^1.0.3"
+    "@fluent/console": "^1.0.5",
+    "@fluent/core": "^1.0.5",
+    "@fluent/di": "^1.0.5",
+    "@fluent/logging": "^1.0.5",
+    "winston": "^2.4.0"
   },
   "devDependencies": {
     "@types/node": "^9.3.0",
     "nodemon": "^1.14.11",
+    "ts-loader": "^3.3.1",
     "ts-node": "^4.1.0",
-    "typescript": "2.6.*"
+    "typescript": "2.6.*",
+    "webpack": "^3.10.0"
   }
 }

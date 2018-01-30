@@ -1,10 +1,8 @@
-import { Main, Startup } from '@fluent/core';
-import { Application, ApplicationBuilder } from '@fluent/console';
-import { ServeCommand } from './commands/serve.command';
+import { Main, ApplicationBuilder } from '@fluent/core';
 
-@Main(Application)
-export class FluentStartup extends Startup<ApplicationBuilder> {
-  configure(applicationBuilder: ApplicationBuilder) {
-    applicationBuilder.useCommand('serve', ServeCommand);
+@Main()
+export class FluentStartup {
+  configure(application: ApplicationBuilder) {
+    application.useLogging(logger => logger.addConsoleTransport());
   }
 }

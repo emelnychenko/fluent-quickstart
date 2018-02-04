@@ -1,8 +1,13 @@
-import { Main, ApplicationBuilder } from '@fluent/core';
+import { Main, ApplicationBuilder, ServiceCollection } from '@fluent/core';
+import { PingCommand } from './commands/ping.command';
 
 @Main()
-export class FluentStartup {
+export class Startup {
+  configureServices(services: ServiceCollection) {
+    services.addLogger(logger => logger.addConsole());
+  }
+
   configure(application: ApplicationBuilder) {
-    application.useLogging(logger => logger.useConsole());
+    application.addCommand(PingCommand);
   }
 }
